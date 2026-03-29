@@ -1,0 +1,23 @@
+### GET ALL NOTES
+GET http://localhost:3000/notes
+
+### CREATE NOTE
+POST http://localhost:3000/notes
+Content-Type: application/json
+
+{
+  "judul": "Catatan dari VSCode",
+  "isi": "Ini isi catatan dari REST Client"
+}
+
+### UPDATE NOTE
+PUT http://localhost:3000/notes/8
+Content-Type: application/json
+
+{
+  "judul": "Update dari VSCode",
+  "isi": "Isi sudah diubah"
+}
+
+### DELETE NOTE
+DELETE http://localhost:3000/notes/1

@@ -1,0 +1,200 @@
+* {
+    box-sizing: border-box;
+}
+  
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top, #111, #0a0a0c);
+    color: #fff;
+}
+  
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px 20px;
+}
+  
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+  
+.notes {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+  
+.note {
+    position: relative;
+    padding: 18px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: 0.3s;
+}
+  
+.note:hover {
+    transform: translateY(-3px);
+}
+  
+.note h3 {
+    margin: 0 0 5px 0;
+    word-break: break-word;
+}
+  
+.note p {
+    word-break: break-word;
+}
+  
+.note small {
+    color: #aaa;
+    font-size: 12px;
+}
+  
+.edited {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-size: 11px;
+    color: #888;
+}
+  
+.actions {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    display: flex;
+    gap: 8px;
+}
+  
+.icon-btn {
+    background: rgba(255,255,255,0.05);
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+  
+.icon {
+    width: 18px;
+    height: 18px;
+    fill: white;
+}
+  
+.icon-btn:hover {
+    background: rgba(255,255,255,0.15);
+}
+  
+/* MODAL */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.modal.hidden {
+    display: none;
+}
+  
+.modal-content {
+    background: #111;
+    padding: 25px;
+    border-radius: 14px;
+    width: 380px;
+    text-align: center;
+}
+  
+.modal-content h2 {
+    margin-bottom: 10px;
+}
+  
+.modal-content p {
+    color: #aaa;
+    margin-bottom: 20px;
+}
+  
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+  
+.modal-actions button {
+    width: 120px;
+}
+  
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 6px;
+    background: #1a1a1d;
+    color: white;
+}
+  
+textarea {
+    resize: none;
+}
+  
+/* BUTTON */
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #5865f2;
+    color: white;
+    cursor: pointer;
+}
+  
+.btn-cancel {
+    background: #333;
+}
+  
+.modal-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-btn:hover svg {
+    fill: #6d5dfc;
+}
+  
+.icon-btn:last-child:hover svg {
+    fill: #ff4d4d;
+}
+  
+.fab {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    font-size: 26px;
+}
+  
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #222;
+    padding: 10px 20px;
+    border-radius: 8px;
+    opacity: 0;
+    transition: 0.3s;
+}
+  
+.toast.show {
+    opacity: 1;
+}
