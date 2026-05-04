@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/notes";
+const API_URL = "https://notes-backend-123230064-498485862524.asia-southeast2.run.app";
 let deleteId = null;
 
 // FORMAT
@@ -13,7 +13,7 @@ function formatTanggal(dateString) {
 
 // FETCH
 async function fetchNotes() {
-  const res = await fetch(API_URL);
+  const res = await fetch(`${API_URL}/notes`);
   const data = await res.json();
 
   const container = document.getElementById("notesList");
@@ -80,14 +80,14 @@ async function saveNote() {
   }
 
   if (id) {
-    await fetch(`${API_URL}/${id}`, {
+    await fetch(`${API_URL}/notes/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ judul, isi })
     });
     showToast("Note diupdate");
   } else {
-    await fetch(API_URL, {
+    await fetch(`${API_URL}/notes`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ judul, isi })
@@ -115,7 +115,7 @@ async function confirmDelete() {
   el.classList.add("removing");
 
   setTimeout(async () => {
-    await fetch(`${API_URL}/${deleteId}`, {
+    await fetch(`${API_URL}/notes/${deleteId}`, {
       method: "DELETE"
     });
 

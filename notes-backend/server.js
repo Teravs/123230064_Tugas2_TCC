@@ -3,7 +3,7 @@ const mysql = require('mysql2');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 8080;
 
 // middleware
 app.use(cors());
@@ -11,10 +11,10 @@ app.use(express.json());
 
 // koneksi ke database
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '', 
-  database: 'notes_db'
+  host: '34.172.113.167',
+  user: 'admin',
+  password: 'mypassword', 
+  database: 'notes_123230064'
 });
 
 // cek koneksi
@@ -25,11 +25,6 @@ db.connect((err) => {
     console.log('Terhubung ke MySQL');
   }
 });
-
-
-// =======================
-// ROUTES / API
-// =======================
 
 // 1. GET semua notes
 app.get('/notes', (req, res) => {
@@ -81,5 +76,5 @@ app.delete('/notes/:id', (req, res) => {
 
 // start server
 app.listen(PORT, () => {
-  console.log(`Server jalan di http://localhost:${PORT}`);
+  console.log(`Server jalan di port ${PORT}`);
 });
